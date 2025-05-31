@@ -1,0 +1,455 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0d0221;
+  color: #fff;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 51, 204, 0.6), rgba(255, 128, 0, 0.5), rgba(153, 0, 255, 0.6), rgba(204, 102, 255, 0.6));
+  background-size: 300% 300%;
+  animation: logoGradient 6s ease infinite;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(255, 128, 255, 0.15);
+  letter-spacing: 1px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+nav {
+  display: flex;
+  align-items: center;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.nav-links li {
+  position: relative;
+  text-align: center;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: #ff33cc;
+}
+.nav-links .arrow {
+  font-size: 0.7em;
+  margin-left: 6px;
+}
+.auth-buttons {
+  margin-left: 40px;
+  display: flex;
+  gap: 20px;
+}
+.auth-buttons a {
+  padding: 10px 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.auth-buttons a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ff80ff;
+  transform: translateY(-2px);
+}
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  min-width: 160px;
+  z-index: 10;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+.dropdown-menu li {
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+.dropdown-menu li a {
+  color: #fff;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.dropdown-menu li a:hover {
+  color: #ff33cc;
+}
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.slideshow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fade 16s infinite ease-in-out;
+  transition: opacity 2s ease-in-out;
+}
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 4s; }
+.slide:nth-child(3) { animation-delay: 8s; }
+.slide:nth-child(4) { animation-delay: 12s; }
+@keyframes fade {
+  0%, 30%, 100% { opacity: 0; }
+  5%, 25% { opacity: 1; }
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 60px;
+  max-width: 600px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: left;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+.cta-button {
+  background-color: #9900ff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.cta-button:hover {
+  background-color: #cc33ff;
+}
+.features {
+  background-color: #140024;
+  padding: 60px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.feature-box {
+  max-width: 300px;
+  margin: 20px;
+  transition: transform 0.3s ease;
+}
+.feature-box:hover {
+  transform: translateY(-5px);
+}
+.feature-box h2,
+.feature h2 {
+  margin-bottom: 15px;
+  color: #ff80ff;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.feature-box p,
+.feature p {
+  color: #ccc;
+  font-size: 1rem;
+  text-align: center;
+}
+footer {
+  background-color: #1a001f;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+footer a {
+  color: #ff80ff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+.auth-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+}
+.auth-box {
+  width: 420px;
+  margin-right: 60px;
+  padding: 40px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(30, 0, 60, 0.7), rgba(70, 0, 100, 0.8));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(255, 0, 255, 0.2);
+  animation: slideIn 0.4s ease;
+  position: relative;
+  color: #fff;
+}
+.auth-box h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #ff80ff;
+  text-align: center;
+}
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 1rem;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.05);
+}
+.auth-box input::placeholder {
+  color: #ccc;
+}
+.auth-box::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ff00cc, #6600ff, #ff66cc);
+  z-index: -1;
+  filter: blur(12px);
+  opacity: 0.25;
+}
+.close-btn,
+.auth-box .close-btn {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 1.5rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.close-btn:hover {
+  color: #ff33cc;
+}
+.neon-button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(145deg, #ff00cc, #9900ff);
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.4), 0 0 20px rgba(153, 0, 255, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.neon-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.7), 0 0 30px rgba(153, 0, 255, 0.5);
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes logoGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 15px;
+  }
+  .logo {
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+  }
+  nav {
+    width: 100%;
+    justify-content: center;
+  }
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+  .auth-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+  }
+  .auth-buttons a {
+    width: 90%;
+    margin: 0;
+  }
+  .dropdown-menu {
+    position: static;
+    display: none;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  .hero-content {
+    padding: 0 20px;
+    text-align: center;
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+  .features {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  .feature-box {
+    width: 100%;
+    max-width: 90%;
+    margin: 15px 0;
+  }
+  footer {
+    font-size: 0.8rem;
+    padding: 15px 10px;
+  }
+  footer a {
+    display: inline-block;
+    margin: 5px;
+  }
+}
+/* --- Add this to the end of your style.css file --- */
+
+/* --- Add this to the end of your style.css file --- */
+
+.user-profile {
+  position: relative;
+  margin-left: 40px; /* Aligns it where the auth buttons were */
+}
+
+.user-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ff00cc, #9900ff);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase; /* Ensure initials are capitalized */
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+}
+
+/* We can reuse your dropdown menu for the logout link */
+.user-profile:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Adjustments for the message box to be more prominent */
+#messageBox {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    background: linear-gradient(to right, #4facfe, #00f2fe); /* Default for success */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    display: none; /* Hidden by default */
+    min-width: 250px; /* Ensure it's wide enough */
+    animation: fadeInOut 4s forwards; /* Animation for appearance and disappearance */
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
