@@ -1,6 +1,6 @@
 
 <?php
-$host = "sqlXXX.infinityfree.com";  // from InfinityFree panel
+$host = "	sql201.infinityfree.com";  // from InfinityFree panel
 $user = "your_db_user";             // from panel
 $pass = "your_db_password";         // from panel
 $db   = "your_db_name";             // from panel
