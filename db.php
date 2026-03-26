@@ -1,9 +1,8 @@
-
 <?php
-$host = "	sql201.infinityfree.com";  // from InfinityFree panel
-$user = "your_db_user";             // from panel
-$pass = "your_db_password";         // from panel
-$db   = "your_db_name";             // from panel
+$host = "sql201.infinityfree.com";  // exact copy karo
+$user = "if0_41486681";              // exact username
+$pass = "McngKTnOKopxbm3";     // jo set kiya tha
+$db   = "if0_41486681_demoreco";    // full db name
 
 $conn = new mysqli($host, $user, $pass, $db);
 
